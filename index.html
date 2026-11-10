@@ -32,8 +32,27 @@
 <section id="galeria" class="page hidden"><div class="sectionhead"><div><h2>Galería</h2><div class="muted">Imágenes y videos de los destinos y actividades de Sacaba.</div></div></div><div class="grid" id="galleryCards"></div></section>
 <section id="reservas" class="page hidden"><div class="sectionhead"><div><h2>Solicitar visita guiada</h2><div class="muted">Envía una solicitud a la Unidad de Turismo.</div></div></div><div class="panel"><div class="notice">Esta primera versión registra solicitudes de prueba en el navegador. Para recibirlas oficialmente se deberá conectar un servidor institucional y definir el correo o canal receptor.</div><form id="bookingForm"><div class="two"><div><label>Nombre completo</label><input class="field" name="name" required></div><div><label>Celular</label><input class="field" name="phone" required></div><div><label>Correo electrónico (opcional)</label><input class="field" type="email" name="email"></div><div><label>Atractivo o ruta</label><select class="field" name="place"><option>Parque Prehistórico</option><option>Parque Ecoturístico San Isidro</option><option>Cascada del Edén del Palca</option><option>Ruta turística Pajcha</option><option>Conociendo Sacaba</option></select></div><div><label>Fecha solicitada</label><input class="field" type="date" name="date" required></div><div><label>Número de visitantes</label><input class="field" type="number" min="1" max="100" name="people" required></div></div><label>Observaciones</label><textarea class="field" name="notes" rows="3"></textarea><p><button class="btn" type="submit">Enviar solicitud de prueba</button></p></form></div><div id="bookingResult"></div></section>
 <section id="mapa" class="page hidden"><div class="sectionhead"><div><h2>Mapa turístico</h2><div class="muted">Ubicaciones de referencia y navegación.</div></div></div><div class="mapbox"><div style="font-size:42px">📍</div><h3>Explora los atractivos de Sacaba</h3><p class="muted">Selecciona un lugar para abrir la búsqueda de ubicación en Google Maps.</p></div><div class="grid" id="mapPlaces"></div><p class="notice">Las ubicaciones exactas deberán ser verificadas por la Unidad de Turismo antes de publicar los marcadores definitivos.</p></section>
-<section id="qr" class="page hidden"><div class="sectionhead"><div><h2>Códigos QR y audioguías</h2><div class="muted">Información interpretativa para cada atractivo.</div></div></div><div class="panel"><h3>Una experiencia que puedes escuchar</h3><p class="muted">En la siguiente fase se incorporarán audios oficiales, transcripciones y códigos QR individuales vinculados a cada ficha turística.</p><div class="chips"><span class="chip">Historia</span><span class="chip">Cultura</span><span class="chip">Naturaleza</span><span class="chip">Accesibilidad</span></div></div></section>
-<section id="admin" class="page hidden"><div class="sectionhead"><div><h2>Panel de administración</h2><div class="muted">Área de trabajo de la Unidad de Turismo del GAMS.</div></div></div><div class="notice">DEMO LOCAL: este panel no tiene autenticación institucional ni publica datos en internet. No utilizar con información personal real hasta implementar acceso seguro y servidor municipal.</div><div class="panel"><h3>Resumen de contenidos</h3><div class="grid"><div class="cardbody"><b id="countAt">0</b><div class="muted">Atractivos</div></div><div class="cardbody"><b id="countEv">0</b><div class="muted">Eventos</div></div><div class="cardbody"><b id="countBookings">0</b><div class="muted">Solicitudes locales</div></div></div></div><div class="panel"><h3>Herramientas de demostración</h3><div class="adminbar"><button onclick="addEvent()">＋ Agregar evento de prueba</button><button onclick="exportData()">Descargar respaldo JSON</button><button onclick="showBookings()">Ver solicitudes locales</button><button onclick="resetDemo()">Restaurar datos de demostración</button></div><div id="adminOutput"></div></div></section>
+
+<section id="qr" class="page hidden">
+  <div class="sectionhead">
+    <h2>🎧 Audioguías de Sacaba</h2>
+    <div class="muted">Descubre la historia, cultura y naturaleza de nuestros atractivos turísticos.</div>
+  </div>
+
+  <div class="panel">
+    <h3>Una experiencia para escuchar y descubrir</h3>
+    <p class="muted">Selecciona un atractivo y escucha su narración turística.</p>
+    <button class="btn" onclick="detenerAudio()">⏹ Detener narración</button>
+  </div>
+
+  <div class="grid" id="audioCards"></div>
+  <div class="panel">
+    <h3>🎙️ Audios oficiales</h3>
+    <p class="muted">En esta sección incorporaremos las grabaciones oficiales de la Unidad de Turismo del GAMS.</p>
+    <span class="tag">Audios oficiales: próximamente</span>
+  </div>
+</section>
+ class="page hidden"><div class="sectionhead"><div><h2>Panel de administración</h2><div class="muted">Área de trabajo de la Unidad de Turismo del GAMS.</div></div></div><div class="notice">DEMO LOCAL: este panel no tiene autenticación institucional ni publica datos en internet. No utilizar con información personal real hasta implementar acceso seguro y servidor municipal.</div><div class="panel"><h3>Resumen de contenidos</h3><div class="grid"><div class="cardbody"><b id="countAt">0</b><div class="muted">Atractivos</div></div><div class="cardbody"><b id="countEv">0</b><div class="muted">Eventos</div></div><div class="cardbody"><b id="countBookings">0</b><div class="muted">Solicitudes locales</div></div></div></div><div class="panel"><h3>Herramientas de demostración</h3><div class="adminbar"><button onclick="addEvent()">＋ Agregar evento de prueba</button><button onclick="exportData()">Descargar respaldo JSON</button><button onclick="showBookings()">Ver solicitudes locales</button><button onclick="resetDemo()">Restaurar datos de demostración</button></div><div id="adminOutput"></div></div></section>
 </main>
 <footer class="footer"><div class="footerin"><div><b>SACABA TURISMO</b><div>Un destino que inspira</div><small>Gobierno Autónomo Municipal de Sacaba · Unidad de Turismo</small></div><div><b>Descubre · Explora · Vive</b><div><small>Portal demostrativo — Versión 1.0</small></div></div></div></footer>
 <div class="modal hidden" id="detailModal" onclick="if(event.target===this)closeModal()"><div class="modalbox"><button class="linkbtn" style="float:right" onclick="closeModal()">Cerrar ✕</button><div id="detailContent"></div></div></div><div class="toast" id="toast"></div>
@@ -71,4 +90,97 @@ document.getElementById("galleryCards").innerHTML=['Paisajes y naturaleza','Cult
 document.getElementById("mapPlaces").innerHTML=seedAt.map(a=>`<div class="panel"><b>${esc(a.name)}</b><p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.name+" Sacaba Cochabamba Bolivia")}">Buscar ubicación ↗</a></p></div>`).join("");
 updateCounts();
 if("serviceWorker" in navigator && location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
+const audioguias = [
+  {
+    id: 1,
+    nombre: "Parque Prehistórico de Sacaba",
+    texto: "Bienvenidos al Parque Prehistórico de Sacaba. En este espacio podrán descubrir representaciones de enormes dinosaurios que habitaron nuestro planeta hace millones de años. Recorre sus senderos, conoce las diferentes especies y disfruta de una experiencia recreativa y educativa para toda la familia."
+  },
+  {
+    id: 2,
+    nombre: "Parque Ecoturístico San Isidro",
+    texto: "Te damos la bienvenida al Parque Ecoturístico San Isidro. Un espacio para disfrutar de la naturaleza, respirar aire puro y compartir actividades al aire libre. Descubre la riqueza natural de Sacaba y vive una experiencia de descanso y recreación."
+  },
+  {
+    id: 3,
+    nombre: "Cascada del Edén del Palca",
+    texto: "Bienvenidos a la Cascada del Edén del Palca, un atractivo natural que invita a descubrir los paisajes y la riqueza ambiental de Sacaba. Disfruta del entorno, escucha los sonidos de la naturaleza y recuerda cuidar este maravilloso espacio."
+  },
+  {
+    id: 4,
+    nombre: "Ruta turística Pajcha",
+    texto: "Te invitamos a recorrer la Ruta Turística Pajcha, una experiencia para descubrir paisajes, cultura y patrimonio local. Durante el recorrido podrás conocer la identidad de nuestras comunidades y apreciar la riqueza turística de Sacaba."
+  },
+  {
+    id: 5,
+    nombre: "Molinos de Piedra",
+    texto: "Los Molinos de Piedra forman parte de la historia productiva y cultural de Sacaba. Estos espacios permiten conocer antiguas formas de trabajo y valorar los conocimientos tradicionales que forman parte de nuestro patrimonio."
+  },
+  {
+    id: 6,
+    nombre: "Museo del Maíz",
+    texto: "Bienvenidos al Museo del Maíz, un espacio dedicado a conocer la importancia del maíz en la historia, la cultura y las tradiciones de nuestras comunidades. Descubre sus variedades, usos y el valor que representa para la identidad de Sacaba."
+  }
+];
+
+let audioActual = null;
+
+function detenerAudio() {
+  if (audioActual) {
+    audioActual.pause();
+    audioActual.currentTime = 0;
+  }
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  audioActual = null;
+}
+
+function escucharAudioguia(id) {
+  detenerAudio();
+
+  const item = audioguias.find(a => a.id === id);
+  if (!item) return;
+
+  const audioOficial = document.getElementById("audio-oficial-" + id);
+
+  if (audioOficial && audioOficial.src) {
+    audioActual = audioOficial;
+    audioActual.play();
+    return;
+  }
+
+  if (!("speechSynthesis" in window)) {
+    alert("Tu navegador no permite la narración automática.");
+    return;
+  }
+
+  const voz = new SpeechSynthesisUtterance(item.texto);
+  voz.lang = "es-ES";
+  voz.rate = 0.9;
+  voz.pitch = 1;
+  window.speechSynthesis.speak(voz);
+}
+
+function cargarAudioguias() {
+  const contenedor = document.getElementById("audioCards");
+  if (!contenedor) return;
+
+  contenedor.innerHTML = audioguias.map(item => `
+    <article class="card">
+      <div class="cardbody">
+        <span class="tag">Audioguía turística</span>
+        <h3>${item.nombre}</h3>
+        <p>${item.texto}</p>
+        <button class="btn" onclick="escucharAudioguia(${item.id})">
+          ▶ Escuchar narración
+        </button>
+        <audio id="audio-oficial-${item.id}" controls style="width:100%;display:none"></audio>
+      </div>
+    </article>
+  `).join("");
+}
+
+cargarAudioguias();
+
 </script></body></html>
