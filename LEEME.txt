@@ -1,0 +1,19 @@
+SACABA TURISMO — VERSIÓN 1.0 (PROTOTIPO FUNCIONAL)
+
+CONTENIDO
+- index.html: portal web adaptable.
+- manifest.webmanifest y sw.js: base PWA instalable.
+- assets/: logotipos proporcionados.
+
+PRUEBA LOCAL
+1. Descomprimir el ZIP.
+2. Abrir una terminal dentro de la carpeta.
+3. Ejecutar: python -m http.server 8000
+4. Abrir http://localhost:8000
+
+PUBLICACIÓN
+Subir el contenido de la carpeta a un hosting institucional con HTTPS. Configurar el dominio institucional mediante el área de sistemas del GAMS.
+
+IMPORTANTE
+Esta es una demostración frontend. Los formularios y eventos se guardan únicamente en el navegador mediante localStorage. No hay todavía base de datos central, autenticación, notificaciones push, envío real de reservas, QR dinámicos ni administración multiusuario. No introducir datos personales reales ni publicar sin validación institucional.
+Los textos, horarios, tarifas, coordenadas y datos de prestadores deben ser revisados y aprobados por la Unidad de Turismo.

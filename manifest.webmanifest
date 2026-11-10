@@ -1,0 +1,16 @@
+{
+  "name": "Sacaba Turismo",
+  "short_name": "Sacaba Turismo",
+  "description": "Un destino que inspira. Portal turístico del municipio de Sacaba.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f8f5",
+  "theme_color": "#08783e",
+  "icons": [
+    {
+      "src": "assets/escudo-sacaba.jpeg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ]
+}
