@@ -17,3 +17,9 @@ Subir el contenido de la carpeta a un hosting institucional con HTTPS. Configura
 IMPORTANTE
 Esta es una demostración frontend. Los formularios y eventos se guardan únicamente en el navegador mediante localStorage. No hay todavía base de datos central, autenticación, notificaciones push, envío real de reservas, QR dinámicos ni administración multiusuario. No introducir datos personales reales ni publicar sin validación institucional.
 Los textos, horarios, tarifas, coordenadas y datos de prestadores deben ser revisados y aprobados por la Unidad de Turismo.
+
+
+ACTUALIZACIÓN: Parque Prehistórico de Sacaba
+- Se incorporaron cuatro fotografías proporcionadas por la Unidad de Turismo.
+- La ficha muestra tarifas: adultos Bs 5; niños Bs 2; adultos mayores ingreso gratuito; personas con discapacidad ingreso gratuito.
+- El horario continúa pendiente de confirmación institucional.
